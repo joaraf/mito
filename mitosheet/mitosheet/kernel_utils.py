@@ -7,6 +7,19 @@ try:
     from ipykernel import get_connection_file
     from ipykernel.comm import Comm 
 
+    def get_connection_file():
+        """
+        Return app connection file full path for Databricks starting with /databricks folder.
+        """
+        from ipykernel.kernelapp import IPKernelApp
+
+        if not IPKernelApp.initialized():
+            raise RuntimeError("app not specified, and not in a running Kernel")
+        
+        app = IPKernelApp.instance()
+
+        return app.connection_file
+
     def get_current_kernel_id() -> str:
         """
         Return the url of the current jupyter notebook server.
