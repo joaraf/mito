@@ -4,7 +4,7 @@ from typing import Any, Callable
 
 try:
     import os
-    from ipykernel import get_connection_file
+    # from ipykernel import get_connection_file
     from ipykernel.comm import Comm 
 
     def get_connection_file():
